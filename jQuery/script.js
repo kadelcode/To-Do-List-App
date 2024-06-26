@@ -24,4 +24,18 @@ $(document).ready(function () {
 		});
 		localStorage.setItem('tasks', JSON.stringify(tasks));
 	} // end saveTasks() function
-		}
+	
+	function loadTasks() {
+		let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+		tasks.forEach(function (task) {
+			let taskItem =
+				`
+				<li>
+				  <span class="task-text ${task.completed ? 'completed' : ''}">${task.text}</span>
+					<button class="remove">Remove</button>
+				</li>
+				`;
+			$('#taskList').append(taskItem);
+		});
+	}
+})
