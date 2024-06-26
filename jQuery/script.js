@@ -9,5 +9,19 @@ $(document).ready(function () {
     `;
     
     // Append the task item to the list
-    $('#taskList`).append(taskItem);
-  }        
+    $('#taskList').append(taskItem);
+  }
+
+	function saveTasks() {
+		let tasks = [];
+		
+		$('#taskList li').each(function () {
+			let task = {
+				text: $(this).find('.task-text').text(),
+				completed: $(this).find('.task-text').hasClass('completed')
+			}
+			tasks.push(task);
+		});
+		localStorage.setItem('tasks', JSON.stringify(tasks));
+	} // end saveTasks() function
+		}
