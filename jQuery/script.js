@@ -1,4 +1,17 @@
 $(document).ready(function () {
+	// Load tasks from local storage
+	loadTasks();
+
+	// Add task
+	$('#addTaskBtn').on('click', function () {
+		let taskText = $('#taskInput').val();
+
+		if (taskText) {
+			addTask(taskText);
+			$('#taskInput').val('');
+		}
+	});
+
   // Add task function
   function addTask(taskText) {
     let taskItem = `
@@ -12,6 +25,7 @@ $(document).ready(function () {
     $('#taskList').append(taskItem);
   }
 
+	// Save task function
 	function saveTasks() {
 		let tasks = [];
 		
@@ -25,6 +39,7 @@ $(document).ready(function () {
 		localStorage.setItem('tasks', JSON.stringify(tasks));
 	} // end saveTasks() function
 	
+	// Load tasks function
 	function loadTasks() {
 		let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 		tasks.forEach(function (task) {
