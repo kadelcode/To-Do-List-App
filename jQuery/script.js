@@ -12,6 +12,12 @@ $(document).ready(function () {
 		}
 	});
 
+	// Remove task
+	$('#taskList').on('click', '.remove', function () {
+		$(this).parent().remove();
+		saveTasks();
+	});
+
   // Add task function
   function addTask(taskText) {
     let taskItem = `
