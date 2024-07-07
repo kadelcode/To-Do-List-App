@@ -12,4 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
 		// set the task input value to empty after adding the task
 		taskInput.value = '';
 	});
+
+	// Handling clicks on the task list
+	taskList.addEventListener('click', (e) => {
+		if (e.target.classList.contains('delete')) {
+			deleteTask(e.target.parentElement);
+		} else if (e.target.classList.contains('edit')) {
+			editTask(e.target.parentElement);
+		} else if (e.target.classList.contains('complete')) {
+			toggleCompleteTask(e.target.parentElement);
+		}
+	});
 });
