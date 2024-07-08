@@ -23,4 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
 			toggleCompleteTask(e.target.parentElement);
 		}
 	});
+
+	// Load tasks from local storage
+	function loadTasks() {
+		const tasks = getTasksFromStorage();
+		tasks.forEach(task => addTaskToDoM(task));
+	}
 });
