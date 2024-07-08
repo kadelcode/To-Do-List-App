@@ -29,4 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
 		const tasks = getTasksFromStorage();
 		tasks.forEach(task => addTaskToDoM(task));
 	}
+
+	// Get tasks from local storage
+	function getTasksFromStorage() {
+		const tasks = localStorage.getItem('tasks')
+		return tasks ? JSON.parse(tasks) : [];
+	}
+
+	// Save tasks to storage
+	function saveTasksToStorage() {
+		localStorage.setItem('tasks', JSON.stringify(tasks));
+	}
 });
