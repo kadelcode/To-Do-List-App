@@ -18,6 +18,12 @@ $(document).ready(function () {
 		saveTasks();
 	});
 
+	// Mark task as completed
+	$('#taskList').on('click', '.task-text', function () {
+		$(this).toggleClass('completed');
+		saveTasks();
+	});
+
   // Add task function
   function addTask(taskText) {
     let taskItem = `
@@ -59,4 +65,6 @@ $(document).ready(function () {
 			$('#taskList').append(taskItem);
 		});
 	}
+
+	//
 })
