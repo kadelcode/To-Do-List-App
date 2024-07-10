@@ -40,4 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	function saveTasksToStorage(tasks) {
 		localStorage.setItem('tasks', JSON.stringify(tasks));
 	}
+
+	// Adding a task
+	function addTask(taskText) {
+		const task = { text: taskText, completed: false };
+		addTaskDOM(task);
+		saveTask(task);
+	}
 });
