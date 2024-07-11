@@ -47,4 +47,29 @@ document.addEventListener('DOMContentLoaded', () => {
 		addTaskDOM(task);
 		saveTask(task);
 	}
+
+	function addTaskToDOM(task) {
+		const li = document.createElement('li');
+		li.textContent = task.text;
+		if (task.completed) {
+			li.classList.add('completed');
+		}
+
+		const completeBtn = document.createElement('button');
+		completeBtn.textContent = '>';
+		completeBtn.classList.add('complete');
+		li.appendChild(completeBtn);
+
+		const editBtn = document.createElement('button');
+		editBtn.textContent = '-';
+		editBtn.classList.add('edit');
+		li.appendChild(editBtn);
+
+		const deleteBtn = document.createElement('button');
+		deleteBtn.textContent = 'x';
+		deleteBtn.classList.add('delete');
+		li.appendChild(deleteBtn);
+
+		taskList.appendChild(li);
+	}
 });
