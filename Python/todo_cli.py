@@ -15,3 +15,12 @@ def remove_task(task_number):
         print(f'Task removed: {removed_task}')
     else:
         print(f'Task number {task_number} not found.')
+
+# View tasks
+def view_tasks():
+    if tasks:
+        print('To-Do List:')
+        for i, task in enumerate(tasks):
+            print(f'{i + 1}. {task)')
+    else:
+        print('No tasks in the list.')
