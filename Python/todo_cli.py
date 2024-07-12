@@ -24,3 +24,13 @@ def view_tasks():
             print(f'{i + 1}. {task)')
     else:
         print('No tasks in the list.')
+
+# Help commands
+def show_help():
+    print('To-Do List Application')
+    print('Commands:')
+    print(' add "task"      Add a new task')
+    print(' remove n        Remove a task by number')
+    print(' view            View all tasks')
+    print(' help            Show this help message')
+    print(' exit            Exit the application')
