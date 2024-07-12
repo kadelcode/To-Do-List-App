@@ -21,7 +21,7 @@ def view_tasks():
     if tasks:
         print('To-Do List:')
         for i, task in enumerate(tasks):
-            print(f'{i + 1}. {task)')
+            print(f'{i + 1}. {task}')
     else:
         print('No tasks in the list.')
 
