@@ -46,3 +46,10 @@ def main():
         if command.startswith('add '):
             task = command[4:].strip('"')
             add_task(task)
+
+        elif command.startswith('remove '):
+            try:
+                task_number = int(command.split()[1]) - 1
+                remove_task(task_number)
+            except (IndexError, ValueError):
+                print('Please provide a valid task number.')
