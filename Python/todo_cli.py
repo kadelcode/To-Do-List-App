@@ -34,3 +34,22 @@ def show_help():
     print(' view            View all tasks')
     print(' help            Show this help message')
     print(' exit            Exit the application')
+
+# Main function
+def main():
+    # Call the show_help function
+    show_help();
+
+    # Creating an infinite loop
+    while True:
+        command = input('\nEnter command: ').strip().lower()
+        if command.startswith('add '):
+            task = command[4:].strip('"')
+            add_task(task)
+
+        elif command.startswith('remove '):
+            try:
+                task_number = int(command.split()[1]) - 1
+                remove_task(task_number)
+            except (IndexError, ValueError):
+                print('Please provide a valid task number.')
