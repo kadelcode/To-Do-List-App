@@ -23,4 +23,53 @@ document.addEventListener('DOMContentLoaded', () => {
 			toggleCompleteTask(e.target.parentElement);
 		}
 	});
+
+	// Load tasks from local storage
+	function loadTasks() {
+		const tasks = getTasksFromStorage();
+		tasks.forEach(task => addTaskToDoM(task));
+	}
+
+	// Get tasks from local storage
+	function getTasksFromStorage() {
+		const tasks = localStorage.getItem('tasks')
+		return tasks ? JSON.parse(tasks) : [];
+	}
+
+	// Save tasks to storage
+	function saveTasksToStorage(tasks) {
+		localStorage.setItem('tasks', JSON.stringify(tasks));
+	}
+
+	// Adding a task
+	function addTask(taskText) {
+		const task = { text: taskText, completed: false };
+		addTaskDOM(task);
+		saveTask(task);
+	}
+
+	function addTaskToDOM(task) {
+		const li = document.createElement('li');
+		li.textContent = task.text;
+		if (task.completed) {
+			li.classList.add('completed');
+		}
+
+		const completeBtn = document.createElement('button');
+		completeBtn.textContent = '>';
+		completeBtn.classList.add('complete');
+		li.appendChild(completeBtn);
+
+		const editBtn = document.createElement('button');
+		editBtn.textContent = '-';
+		editBtn.classList.add('edit');
+		li.appendChild(editBtn);
+
+		const deleteBtn = document.createElement('button');
+		deleteBtn.textContent = 'x';
+		deleteBtn.classList.add('delete');
+		li.appendChild(deleteBtn);
+
+		taskList.appendChild(li);
+	}
 });
