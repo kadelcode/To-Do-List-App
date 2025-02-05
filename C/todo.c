@@ -20,3 +20,7 @@ typedef struct {
     char task[TASK_LENGTH];
     int completed; // An integer flag
 } Task;
+
+/* Declare global variables */
+Task tasks[MAX_TASKS];
+int task_count = 0;
