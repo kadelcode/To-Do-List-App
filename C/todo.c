@@ -14,3 +14,9 @@
 
 //Maximum length of a task description (256 characters).
 #define TASK_LENGTH 256
+
+/* Define the task structure */
+typedef struct {
+    char task[TASK_LENGTH];
+    int completed; // An integer flag
+} Task;
